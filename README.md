@@ -15,6 +15,7 @@ The goal is to validate core functionalities such as authentication, cart operat
 ---
 
 ## 3. Project Structure
+```
 automationtest_exercise
 │
 ├── pages # Page Object files
@@ -22,7 +23,7 @@ automationtest_exercise
 ├── test-data # Test data (users, products)
 ├── playwright.config.ts
 └── README.md
-
+```
 ---
 
 ## 4. Implemented Test Cases
