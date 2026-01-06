@@ -19,6 +19,16 @@ export class LoginPage {
         ).toBeVisible();
     }
 
+    async logout() {
+        await this.page.getByRole('link', { name: 'Logout' }).click();
+    }
+
+    async logoutSuccessfully() {
+        await expect(
+            this.page.getByRole('heading', { name: 'Login to your account' })
+        ).toBeVisible();
+    }
+
     async expectWrongEmailOrPasswordError() {
         await expect(this.wrongEmailOrPasswordError).toBeVisible();
     }

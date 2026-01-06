@@ -4,7 +4,7 @@ export class CartPage {
     constructor(private page: Page) { }
 
     async goToCart() {
-        await this.page.getByRole('link', { name: 'Cart' }).click();
+        await this.page.getByRole('link', { name: 'Cart', exact: true }).click();
     }
 
     async viewCart() {

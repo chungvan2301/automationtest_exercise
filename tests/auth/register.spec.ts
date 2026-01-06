@@ -2,6 +2,7 @@ import { test } from '@playwright/test';
 import { HomePage } from '../../pages/home.page';
 import { SignupPage } from '../../pages/signup.page';
 import { AccountPage } from '../../pages/account.page';
+import { USERS } from '../../test-data/users';
 
 test('Register User', async ({ page }) => {
     const home = new HomePage(page);
@@ -25,11 +26,10 @@ test('Register User with existing email', async ({ page }) => {
     const home = new HomePage(page);
     const signup = new SignupPage(page);
 
-    const existEmail = `dev_test_01@yopmail.com`;
-    const existName = `devtest`;
+    const VALID_USER = USERS.VALID_USER;
 
     await home.goto();
     await home.goToSignupLogin();
-    await signup.signup(existName, existEmail);
+    await signup.signup("test", VALID_USER.email);
     await signup.expectExistingEmailError();
 });
