@@ -14,4 +14,12 @@ export class HomePage {
             this.page.getByRole('heading', { name: 'New User Signup!' })
         ).toBeVisible();
     }
+
+    async goToProducts() {
+        await this.page.getByRole('link', { name: 'Products' }).click();
+
+        await expect(
+            this.page.getByRole('heading', { name: 'All Products' })
+        ).toBeVisible();
+    }
 }
