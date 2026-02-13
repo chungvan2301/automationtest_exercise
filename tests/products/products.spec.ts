@@ -4,8 +4,9 @@ import { ProductsPage } from '../../pages/products.page';
 import { ProductDetailPage } from '../../pages/productDetail.page';
 import { CartPage } from '../../pages/cart.page';
 import { PRODUCTS } from '../../test-data/products';
+import { SEARCH_TERMS } from '../../test-data/search';
 
-test('Add Products in Cart', async ({ page }) => {
+test('Test Case 12: Add Products in Cart', async ({ page }) => {
     const home = new HomePage(page);
     const products = new ProductsPage(page);
     const cart = new CartPage(page);
@@ -24,7 +25,7 @@ test('Add Products in Cart', async ({ page }) => {
     await cart.productCountInCart(quantityOfProductInCart);
 });
 
-test('Verify Product quantity in Cart', async ({ page }) => {
+test('Test Case 13: Verify Product quantity in Cart', async ({ page }) => {
     const home = new HomePage(page);
     const cart = new CartPage(page);
     const productDetail = new ProductDetailPage(page);
@@ -42,7 +43,7 @@ test('Verify Product quantity in Cart', async ({ page }) => {
     await cart.verifyProductQuantity(quantity, BLUE_TOP.id);
 });
 
-test('Remove Products From Cart', async ({ page }) => {
+test('Test Case 17: Remove Products From Cart', async ({ page }) => {
     const home = new HomePage(page);
     const products = new ProductsPage(page);
     const cart = new CartPage(page);
@@ -52,9 +53,25 @@ test('Remove Products From Cart', async ({ page }) => {
 
     await home.goto();
     await home.goToProducts();
+    await products.expectProductsPage();
 
     await products.addProductToCart(BLUE_TOP.id);
     await cart.viewCart();
     await cart.productCountInCart(quantityOfProductInCart);
     await cart.removeProductFromCart(BLUE_TOP.id);
+});
+
+SEARCH_TERMS.forEach(({ searchTerm }) => {
+    test(`Test Case 9: Search Product - ${searchTerm}`, async ({ page }) => {
+        const home = new HomePage(page);
+        const products = new ProductsPage(page);
+
+        await home.goto();
+        await home.goToProducts();
+        await products.expectProductsPage();
+
+        await products.searchProduct(searchTerm);
+        await products.expectSearchedProducts(searchTerm);
+        await products.expectValidSearchResults(searchTerm);
+    });
 });

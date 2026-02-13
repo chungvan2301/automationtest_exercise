@@ -3,7 +3,7 @@ import { HomePage } from '../../pages/home.page';
 import { LoginPage } from '../../pages/login.page';
 import { USERS } from '../../test-data/users';
 
-test('Login User with correct email and password', async ({ page }) => {
+test('Test Case 2: Login User with correct email and password', async ({ page }) => {
     const home = new HomePage(page);
     const login = new LoginPage(page);
 
@@ -15,7 +15,7 @@ test('Login User with correct email and password', async ({ page }) => {
     await login.loginSuccessfully();
 });
 
-test('Login User with incorrect email and password', async ({ page }) => {
+test('Test Case 3:Login User with incorrect email and password', async ({ page }) => {
     const home = new HomePage(page);
     const login = new LoginPage(page);
 
@@ -27,7 +27,7 @@ test('Login User with incorrect email and password', async ({ page }) => {
     await login.expectWrongEmailOrPasswordError();
 });
 
-test('Logout User', async ({ page }) => {
+test('Test Case 4: Logout User', async ({ page }) => {
     const home = new HomePage(page);
     const login = new LoginPage(page);
 

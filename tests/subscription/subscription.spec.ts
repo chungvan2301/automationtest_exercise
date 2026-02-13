@@ -3,7 +3,7 @@ import { HomePage } from '../../pages/home.page';
 import { CartPage } from '../../pages/cart.page';
 import { USERS } from '../../test-data/users';
 
-test('Verify Subscription in home page', async ({ page }) => {
+test('Test Case 10: Verify Subscription in home page', async ({ page }) => {
     const home = new HomePage(page);
     const email = USERS.VALID_USER.email;
 
@@ -14,7 +14,7 @@ test('Verify Subscription in home page', async ({ page }) => {
     await home.verifySubscribeSuccessMessage();
 });
 
-test('Verify Subscription in Cart page', async ({ page }) => {
+test('Test Case 11: Verify Subscription in Cart page', async ({ page }) => {
     const home = new HomePage(page);
     const cart = new CartPage(page);
     const email = USERS.VALID_USER.email;
