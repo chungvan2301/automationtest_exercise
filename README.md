@@ -35,6 +35,7 @@ automationtest_exercise
 | TC03 | Login User with incorrect email and password |
 | TC04 | Logout User |
 | TC05 | Register User with existing email |
+| TC09 | Search Product |
 | TC10 | Verify Subscription in Home Page |
 | TC11 | Verify Subscription in Cart Page |
 | TC12 | Add Products in Cart |
