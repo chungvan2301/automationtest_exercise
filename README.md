@@ -65,3 +65,11 @@ npx playwright test
 ```
 npx playwright test --ui
 ```
+
+---
+
+## 7. Test Execution Report
+
+Below is a sample Playwright HTML report after executing the test suite:
+
+![Playwright Test Report](./assets/test-report.png)
